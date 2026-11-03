@@ -54,6 +54,12 @@
         android:layout_height="wrap_content">
 
         <RadioButton
+            android:id="@+id/method_autoplay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/method_autoplay" />
+
+        <RadioButton
             android:id="@+id/method_retry"
             android:layout_width="match_parent"
             android:layout_height="48dp"

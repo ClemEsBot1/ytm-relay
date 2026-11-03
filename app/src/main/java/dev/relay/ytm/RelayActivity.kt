@@ -32,6 +32,7 @@ class RelayActivity : Activity() {
             if (id == EditorInfo.IME_ACTION_SEARCH) { send(queryBox.text.toString()); true } else false
         }
         val methods = mapOf(
+            R.id.method_autoplay to Relay.Method.AUTOPLAY,
             R.id.method_retry to Relay.Method.RETRY,
             R.id.method_intent to Relay.Method.INTENT,
             R.id.method_link to Relay.Method.LINK,
@@ -61,14 +62,18 @@ class RelayActivity : Activity() {
     /** Assistant path: forward and close without showing UI. */
     private fun handleSearchIntent(intent: Intent?): Boolean {
         if (intent?.action != MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH) return false
-        Relay.forward(this, intent.getStringExtra(SearchManager.QUERY))
-        finish()
+        // Stay in the foreground until ReVanced is launched (background starts are blocked).
+        Relay.forward(this, intent.getStringExtra(SearchManager.QUERY)) { finish() }
         return true
     }
 
     private fun send(query: String) {
         if (query.isBlank()) return
-        if (Relay.forward(this, query)) finish()
+        findViewById<Button>(R.id.play).apply { isEnabled = false; setText(R.string.finding) }
+        Relay.forward(this, query) { ok ->
+            if (ok) finish()
+            else findViewById<Button>(R.id.play).apply { isEnabled = true; setText(R.string.play) }
+        }
     }
 
     private fun listen() {

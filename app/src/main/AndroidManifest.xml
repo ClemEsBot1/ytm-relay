@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Song lookup on music.youtube.com. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <!-- Lets the background media service launch ReVanced (Android 10+ blocks
          background activity starts otherwise). Granted manually in settings. -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />

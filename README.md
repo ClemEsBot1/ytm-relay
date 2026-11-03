@@ -26,7 +26,11 @@ Goal: "Hey Google, play Runaway on Music Relay" starts the song in ReVanced. No 
 
 ## Send method
 The app screen has a **Send method** picker. It applies to every request, voice included.
-- **Open ReVanced, then send search** (default): sends the search intent, then sends it again 2.5 s later.
+- **Find top result and play it** (default): looks up the top YT Music result for the query,
+  then opens `music.youtube.com/watch?v=<id>&list=RDAMVM<id>` in ReVanced. The song plays at once,
+  followed by its radio mix. Uses YT Music's unofficial web search endpoint (no API key).
+  If the lookup fails, the app opens the search page instead.
+- **Open ReVanced, then send search**: sends the search intent, then sends it again 2.5 s later.
   This covers YT Music dropping the query on a cold start.
 - **Send search intent only**: one intent, same as the MacroDroid macro.
 - **Open search page link**: opens `music.youtube.com/search?q=...` in ReVanced. Shows results and may not auto-play.
