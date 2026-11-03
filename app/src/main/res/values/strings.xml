@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Name you say to Gemini: "play Runaway on Music Relay". Change freely. -->
+    <string name="app_name">Music Relay</string>
+    <string name="hint">Song, artist, album…</string>
+    <string name="play">Play</string>
+    <string name="mic">Speak</string>
+    <string name="grant_overlay">Allow background launch</string>
+    <string name="overlay_ok">Background launch allowed ✓</string>
+    <string name="revanced_missing">YT Music ReVanced not installed</string>
+</resources>
