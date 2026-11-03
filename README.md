@@ -34,7 +34,8 @@ so Gemini opens YouTube instead. Workaround:
 ## Send method
 The app screen has a **Send method** picker. It applies to every request, voice included.
 - **Find top result and play it** (default): looks up the top YT Music result for the query,
-  then opens `music.youtube.com/watch?v=<id>&list=RDAMVM<id>` in ReVanced. The song plays at once,
+  Song (audio-only) versions win over music videos: it tries the Songs filter, then the first song
+  in all results, then the top result. It then opens `music.youtube.com/watch?v=<id>&list=RDAMVM<id>` in ReVanced. The song plays at once,
   followed by its radio mix. Uses YT Music's unofficial web search endpoint (no API key).
   If the lookup fails, the app opens the search page instead.
 - **Open ReVanced, then send search**: sends the search intent, then sends it again 2.5 s later.
