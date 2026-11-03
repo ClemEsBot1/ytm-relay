@@ -24,6 +24,13 @@ Goal: "Hey Google, play Runaway on Music Relay" starts the song in ReVanced. No 
 3. Open Music Relay. Tap **Allow background launch**. Turn on "Display over other apps".
    The media-session path needs this. Android 10+ blocks background activity starts without it.
 
+## Voice via Gemini
+Gemini sends "play X on <app>" only to music services Google recognises. A sideloaded app is not one,
+so Gemini opens YouTube instead. Workaround:
+1. Say "Hey Google, open Music Relay".
+2. The app opens and starts listening (setting: **Start listening when opened**, on by default).
+3. Say the song, e.g. "Heartless Kanye West". It plays in ReVanced.
+
 ## Send method
 The app screen has a **Send method** picker. It applies to every request, voice included.
 - **Find top result and play it** (default): looks up the top YT Music result for the query,

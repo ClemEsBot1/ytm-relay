@@ -11,6 +11,7 @@ import android.provider.Settings
 import android.speech.RecognizerIntent
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.RadioGroup
@@ -42,6 +43,14 @@ class RelayActivity : Activity() {
             setOnCheckedChangeListener { _, id -> methods[id]?.let { Relay.setMethod(this@RelayActivity, it) } }
         }
         findViewById<ImageButton>(R.id.mic).setOnClickListener { listen() }
+        val autoListen = prefs().getBoolean(KEY_AUTO_LISTEN, true)
+        findViewById<CheckBox>(R.id.auto_listen).apply {
+            isChecked = autoListen
+            setOnCheckedChangeListener { _, on -> prefs().edit().putBoolean(KEY_AUTO_LISTEN, on).apply() }
+        }
+        // "Hey Google, open Music Relay" -> go straight to voice input.
+        if (savedInstanceState == null && autoListen) listen()
+
         findViewById<Button>(R.id.overlay).setOnClickListener {
             startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")))
         }
@@ -98,5 +107,10 @@ class RelayActivity : Activity() {
         send(text)
     }
 
-    private companion object { const val REQ_SPEECH = 1 }
+    private fun prefs() = getSharedPreferences("relay", MODE_PRIVATE)
+
+    private companion object {
+        const val REQ_SPEECH = 1
+        const val KEY_AUTO_LISTEN = "auto_listen"
+    }
 }

@@ -8,6 +8,7 @@
     <string name="grant_overlay">Allow background launch</string>
     <string name="overlay_ok">Background launch allowed ✓</string>
     <string name="revanced_missing">YT Music ReVanced not installed</string>
+    <string name="auto_listen">Start listening when opened</string>
     <string name="method_title">Send method</string>
     <string name="method_autoplay">Find top result and play it (auto-play)</string>
     <string name="finding">Finding song…</string>

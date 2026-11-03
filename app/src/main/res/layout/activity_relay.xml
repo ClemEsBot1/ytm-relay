@@ -41,10 +41,17 @@
         android:layout_marginTop="16dp"
         android:text="@string/play" />
 
+    <CheckBox
+        android:id="@+id/auto_listen"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/auto_listen" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/method_title"
         android:textStyle="bold" />
 
