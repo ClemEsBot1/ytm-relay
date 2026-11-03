@@ -19,7 +19,7 @@ Goal: "Hey Google, play Runaway on Music Relay" starts the song in ReVanced. No 
 - Opening the app directly shows a search box, a mic button and a Play button.
 
 ## Install
-1. Get `app-debug.apk` from the **Build debug APK** workflow run (Actions tab, Artifacts).
+1. On your phone, open https://github.com/ClemEsBot1/ytm-relay/releases/latest and tap `music-relay.apk`.
 2. Sideload it. Allow "Install unknown apps" for your browser or file manager.
 3. Open Music Relay. Tap **Allow background launch**. Turn on "Display over other apps".
    The media-session path needs this. Android 10+ blocks background activity starts without it.
