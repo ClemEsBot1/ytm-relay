@@ -4,10 +4,6 @@
     <!-- Song lookup on music.youtube.com. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- Lets the background media service launch ReVanced (Android 10+ blocks
-         background activity starts otherwise). Granted manually in settings. -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
     <!-- Package visibility (Android 11+). -->
     <queries>
         <package android:name="app.revanced.android.apps.youtube.music" />
@@ -37,20 +33,5 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <!-- Media session so assistants see this as a media app. -->
-        <service
-            android:name=".RelayMediaService"
-            android:exported="true"
-            tools:ignore="ExportedService"
-            xmlns:tools="http://schemas.android.com/tools">
-            <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService" />
-            </intent-filter>
-        </service>
-
-        <meta-data
-            android:name="com.google.android.gms.car.application"
-            android:resource="@xml/automotive_app_desc" />
     </application>
 </manifest>
