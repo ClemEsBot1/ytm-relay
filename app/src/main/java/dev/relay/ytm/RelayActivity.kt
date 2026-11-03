@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.RadioGroup
 import android.widget.Toast
 
 class RelayActivity : Activity() {
@@ -29,6 +30,15 @@ class RelayActivity : Activity() {
         findViewById<Button>(R.id.play).setOnClickListener { send(queryBox.text.toString()) }
         queryBox.setOnEditorActionListener { _, id, _ ->
             if (id == EditorInfo.IME_ACTION_SEARCH) { send(queryBox.text.toString()); true } else false
+        }
+        val methods = mapOf(
+            R.id.method_retry to Relay.Method.RETRY,
+            R.id.method_intent to Relay.Method.INTENT,
+            R.id.method_link to Relay.Method.LINK,
+        )
+        findViewById<RadioGroup>(R.id.method).apply {
+            check(methods.entries.first { it.value == Relay.method(this@RelayActivity) }.key)
+            setOnCheckedChangeListener { _, id -> methods[id]?.let { Relay.setMethod(this@RelayActivity, it) } }
         }
         findViewById<ImageButton>(R.id.mic).setOnClickListener { listen() }
         findViewById<Button>(R.id.overlay).setOnClickListener {

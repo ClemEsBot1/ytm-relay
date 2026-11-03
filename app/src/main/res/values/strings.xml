@@ -8,4 +8,8 @@
     <string name="grant_overlay">Allow background launch</string>
     <string name="overlay_ok">Background launch allowed ✓</string>
     <string name="revanced_missing">YT Music ReVanced not installed</string>
+    <string name="method_title">Send method</string>
+    <string name="method_retry">Open ReVanced, then send search (cold-start fix)</string>
+    <string name="method_intent">Send search intent only</string>
+    <string name="method_link">Open search page link</string>
 </resources>

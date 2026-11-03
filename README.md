@@ -24,6 +24,13 @@ Goal: "Hey Google, play Runaway on Music Relay" starts the song in ReVanced. No 
 3. Open Music Relay. Tap **Allow background launch**. Turn on "Display over other apps".
    The media-session path needs this. Android 10+ blocks background activity starts without it.
 
+## Send method
+The app screen has a **Send method** picker. It applies to every request, voice included.
+- **Open ReVanced, then send search** (default): sends the search intent, then sends it again 2.5 s later.
+  This covers YT Music dropping the query on a cold start.
+- **Send search intent only**: one intent, same as the MacroDroid macro.
+- **Open search page link**: opens `music.youtube.com/search?q=...` in ReVanced. Shows results and may not auto-play.
+
 ## Rename
 Change `app_name` in `app/src/main/res/values/strings.xml`. This is the name you say to Gemini.
 

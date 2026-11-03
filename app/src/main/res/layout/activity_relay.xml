@@ -41,6 +41,37 @@
         android:layout_marginTop="16dp"
         android:text="@string/play" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/method_title"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/method_retry"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/method_retry" />
+
+        <RadioButton
+            android:id="@+id/method_intent"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/method_intent" />
+
+        <RadioButton
+            android:id="@+id/method_link"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/method_link" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/overlay"
         style="?android:attr/borderlessButtonStyle"
